@@ -12,17 +12,67 @@ window.onload=function(){
 
 
     let operators=document.getElementById("operators")
-    makeOpButton("=");
+    makeeqButton("=");
     makeOpButton("+");
     makeOpButton("-");
     makeOpButton("/");
     makeOpButton("x");
-    makeOpButton("clear")
-
+    makeClrButton("clear")
 
     let screen= document.getElementById("screen");
 
+    function makeClrButton(strng){
+        const div=document.createElement("div");
+        div.style.display="flex";
+        div.style.backgroundColor="pink";
+        div.style.flexBasis="0";
+        div.style.flexGrow="1";
+        div.style.flexShrink="1";
+        div.textContent+=strng;
+        div.style.border="2px solid";
+        div.style.justifyContent="center";
+        div.style.alignItems="center";
+        div.style.borderColor="black";
+        operators.appendChild(div);
+        div.addEventListener("click",function(e){
+            valString="";
+            operator="";
+            listOfClicked=[];
+            screen.innerHTML="";
+        })
+    }
     
+
+    function makeeqButton(strng){
+        const div=document.createElement("div");
+        div.style.display="flex";
+        div.style.backgroundColor="pink";
+        div.style.flexBasis="0";
+        div.style.flexGrow="1";
+        div.style.flexShrink="1";
+        div.textContent+=strng;
+        div.style.border="2px solid";
+        div.style.justifyContent="center";
+        div.style.alignItems="center";
+        div.style.borderColor="black";
+        operators.appendChild(div);
+        div.addEventListener("click",function(e){
+            console.log(`this is me without pushing valstring to array ${listOfClicked}`)
+            listOfClicked.push(valString);
+            console.log(`we are in the array ${listOfClicked}`)
+            if(listOfClicked.length==3){
+                
+                //sum=Number(listOfClicked[0])+Number(listOfClicked[2]);
+                if(listOfClicked[1]=="+"){sum=add(Number(listOfClicked[0]),Number(listOfClicked[2]))}
+                else if(listOfClicked[1]=="-"){sum=subtract(Number(listOfClicked[0]),Number(listOfClicked[2]))}
+                else if(listOfClicked[1]=="*"){sum=multiply(Number(listOfClicked[0]),Number(listOfClicked[2]))}
+                else if(listOfClicked[1]=="/"){sum=divide(Number(listOfClicked[0]),Number(listOfClicked[2]))}
+             }   
+             screen.innerHTML="";
+             screen.textContent+=sum;
+    
+         })
+    }
 
     function makeOpButton(strng){
         const div=document.createElement("div");
@@ -59,7 +109,7 @@ window.onload=function(){
                 //sum=Number(listOfClicked[0])+Number(listOfClicked[2]);
                 if(listOfClicked[1]=="+"){sum=add(Number(listOfClicked[0]),Number(listOfClicked[2]))}
                 else if(listOfClicked[1]=="-"){sum=subtract(Number(listOfClicked[0]),Number(listOfClicked[2]))}
-                else if(listOfClicked[1]=="*"){sum=multiply(Number(listOfClicked[0]),Number(listOfClicked[2]))}
+                else if(listOfClicked[1]=="x"){sum=multiply(Number(listOfClicked[0]),Number(listOfClicked[2]))}
                 else if(listOfClicked[1]=="/"){sum=divide(Number(listOfClicked[0]),Number(listOfClicked[2]))}
                 //console.log(`adding ${listOfClicked[0]} and ${listOfClicked[2]}`)
                // console.log(`value of sum before adding result is ${sum}`)
