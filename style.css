@@ -1,0 +1,50 @@
+body{
+    display:flex;
+    justify-content:center ;
+    align-items: center;
+    flex-direction: column;
+    background-color:antiquewhite;
+    
+}
+
+#container{
+    display:flex;
+    flex-direction: column;
+    border: 2px solid;
+    border-color: black;
+    height:400px;
+    width:300px;
+    background-color: pink;
+    border-radius: 5px;
+}
+#screen{
+    display:flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height:40px;
+    width: 100%;
+    border-width:4px;
+    border-color: blue;
+    background-color:blanchedalmond;
+}
+.buttons{
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 1;
+    border-color: purple;
+    background-color: aqua;
+}
+
+#numbers{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 3;
+}
+
+#operators{
+    display:flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+
